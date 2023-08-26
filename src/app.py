@@ -10,11 +10,11 @@ import pandas as pd
 
 #-------------------------------------------AWS SDK CONFIGURATION START-------------------------------------------------
 # Define ENDPOINT, CLIENT_ID, PATH_TO_CERT, PATH_TO_KEY, PATH_TO_ROOT, MESSAGE, TOPIC, and RANGE
-ENDPOINT = "ajnh138yfvo99-ats.iot.ap-northeast-1.amazonaws.com"
-CLIENT_ID = "77ea8d43624b10ec68d6587ac69148318078ba3d262ebce87724405723b95df4"
-PATH_TO_CERT = "awsiot_cert/77ea8d43624b10ec68d6587ac69148318078ba3d262ebce87724405723b95df4-certificate.pem.crt"
-PATH_TO_KEY = "awsiot_cert/77ea8d43624b10ec68d6587ac69148318078ba3d262ebce87724405723b95df4-private.pem.key"
-PATH_TO_ROOT = "awsiot_cert/AmazonRootCA1.pem"
+ENDPOINT = "/etc/secrets/endpoint"
+CLIENT_ID = "/etc/secrets/client_id"
+PATH_TO_CERT = "/etc/secrets/certificate.pem.crt"
+PATH_TO_KEY = "/etc/secrets/private.pem.key"
+PATH_TO_ROOT = "/etc/secrets/AmazonRootCA1.pem"
 #-------------------------------------------AWS SDK CONFIGURATION END---------------------------------------------------
 #-------------------------------------Initialize the AWS IoT SDK MQTT client START--------------------------------------------
 myAWSIoTMQTTClient = AWSIoTPyMQTT.AWSIoTMQTTClient(CLIENT_ID)
@@ -246,4 +246,4 @@ def download_data(n_clicks):
 
 
 if __name__ == '__main__':
-    app.run_server(port=8883)
+    app.run_server()
