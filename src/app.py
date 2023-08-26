@@ -20,6 +20,7 @@ PATH_TO_ROOT = "awsiot_cert/AmazonRootCA1.pem"
 myAWSIoTMQTTClient = AWSIoTPyMQTT.AWSIoTMQTTClient(CLIENT_ID)
 myAWSIoTMQTTClient.configureEndpoint(ENDPOINT, 8883)
 myAWSIoTMQTTClient.configureCredentials(PATH_TO_ROOT, PATH_TO_KEY, PATH_TO_CERT)
+myAWSIoTMQTTClient.configureMQTTOperationTimeout(25)
 myAWSIoTMQTTClient.connect()
 #-------------------------------------Initialize the AWS IoT SDK MQTT client END--------------------------------------------
 # Global variable to store the latest received data
@@ -245,4 +246,4 @@ def download_data(n_clicks):
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(port=8883,debug=True)
